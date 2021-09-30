@@ -17,9 +17,8 @@ use App\Http\Controllers\Admin\DashboardController;
 
 Route::get('/', function () {
     return view('welcome');
-});
- 
+})->name('home');
+Route::get('/dashboard', [DashboardController::class,'dashboard'])->name('admin.dashboardnew');
 Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware' => ['auth:sanctum', 'verified']],function(){
     Route::get('/dashboard', [DashboardController::class,'index'])->name('admin.dashboard');
-    Route::post('/dashboard/map', [DashboardController::class,'mapdataVisitor'])->name('admin_dashboard.map');
     });

@@ -29,11 +29,15 @@ class DashboardController extends Controller
     {     
         return view('admin.dashboard');
     }
-    public function mapdataVisitor(Request $request)
+    public function dashboard(Request $request)
     {     
-        $data = DB::table('visitor_details')->select('country', DB::raw('count(*) as total'))
-        ->groupBy('country')->get();
-        return json_encode($data);
+        return view('admin.dashboardnew');
     }
+    // public function mapdataVisitor(Request $request)
+    // {     
+    //     $data = DB::table('visitor_details')->select('country', DB::raw('count(*) as total'))
+    //     ->groupBy('country')->get();
+    //     return json_encode($data);
+    // }
 
 }
